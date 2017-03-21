@@ -4,7 +4,8 @@ var NotesSchema = new mongoose.Schema({
   noteTitle: String,
   noteBody: String,
   noteDate: Date,
-  noteAuthor: { type: mongoose.Schema.Types.ObjectId, ref: "user"}
+  roomName: String,
+  noteAuthor: String
 });
 
 module.exports = mongoose.model('Notes', NotesSchema);

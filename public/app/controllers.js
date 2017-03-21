@@ -1,8 +1,10 @@
 angular.module('AppCtrl', ['AppServices'])
 .controller('SignupCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $scope.user = {
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        roomName: ''
     };
     $scope.userSignup = function() {
         // to implement
@@ -15,13 +17,15 @@ angular.module('AppCtrl', ['AppServices'])
 }])
 .controller('LoginCtrl', ['$scope', '$http', '$state', 'Auth', function($scope, $http, $state, Auth) {
     $scope.user = {
+        name: '',
         email: '',
-        password: ''
     };
     $scope.userLogin = function() {
         // to implement
         $http.post("/api/auth", $scope.user).then(function success(res) {
         Auth.saveToken(res.data.token);
+        console.log(res.data)
+        // Auth.saveUser(res.data);
         $state.go("home")
         }, function error(err) {
             console.log("Yo dawg")
@@ -40,30 +44,39 @@ angular.module('AppCtrl', ['AppServices'])
     $location.path("/login");
   };
 }])
-.controller('NewNotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+.controller('NewNotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'UsersAPI', function($scope, $location, $http, Auth, NotesAPI, UsersAPI){
     $scope.d = function() {
         var today = new Date();
         return today;
     }
-    $scope.newNote = {
-        noteTitle: '',
-        noteBody: '',
-        noteDate: $scope.d(),
-        noteAuthor: ''
-    }
+
+    $scope.temp = Auth.currentUser();
+    var curUser = $scope.temp.id;
+    UsersAPI.getUser(curUser).then(function(user){
+        var currentUser = user.data.name;
+        var currentRoom = user.data.roomName;
+        console.log("User val", user.data.name + " in the", currentRoom)
+
+        $scope.newNote = {
+            noteTitle: '',
+            noteBody: '',
+            noteDate: $scope.d(),
+            noteAuthor: currentUser,
+            roomName: currentRoom
+        }
+    })
     $scope.addNote = function() {
         // to implement
-        console.log("This is what should be in the console:", $scope.newNote)
+        console.log($scope.newNote)
         NotesAPI.createNote($scope.newNote)
         .then(function success(res) {
-            console.log("this is the res:", res.config.data)
             $location.path('/notes')
         }, function error(err) {
-            console.log("Error", err)
+            console.log("Error with create", err)
         })
     };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'UsersAPI', function($scope, $location, $http, Auth, NotesAPI, UsersAPI){
     $scope.notes = [];
     $scope.searchTerm;
 
@@ -84,4 +97,23 @@ angular.module('AppCtrl', ['AppServices'])
     //         console.log("Nooo", err)
     //     })
     // }
-}]);
+}])
+.controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
+      $scope.note = {};
+
+      NotesAPI.getNote($stateParams.id)
+      .then(function success(res){
+        $scope.note = res.data
+      }, function error(err){
+        console.log(err)
+      })
+
+      NotesApi.updateNote($stateParams.id)
+      .then(function success(res){
+        console.log("update note")
+        $scope.note = res.data
+      }, function error(err){
+        console.log(err);
+      })
+
+}])

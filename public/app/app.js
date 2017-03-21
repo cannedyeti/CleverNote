@@ -53,13 +53,18 @@ app.config([
     })
     .state('dsi',{
         url: '/DSI',
-        templateUrl: 'app/views/rooms/dsi',
+        templateUrl: 'app/views/rooms/dsi.html',
         controller: 'NotesCtrl'
     })
     .state('adi',{
         url: '/ADI',
         templateUrl: 'app/views/rooms/adi.html',
         controller: 'NotesCtrl'
+    })
+    .state('onenote',{
+        url: '/notes/:id',
+        templateUrl: "app/views/noteDetail.html",
+        controller: 'OneNoteCtrl'
     })
     $locationProvider.html5Mode(true);
     }])
