@@ -54,7 +54,7 @@ angular.module('AppCtrl', ['AppServices'])
     var curUser = $scope.temp.id;
     UsersAPI.getUser(curUser).then(function(user){
         currentUser = user.data.name;
-        console.log("User val", user)
+        console.log("User val", user.data.name)
 
         $scope.newNote = {
             noteTitle: '',
@@ -65,6 +65,7 @@ angular.module('AppCtrl', ['AppServices'])
     })
     $scope.addNote = function() {
         // to implement
+        console.log($scope.newNote)
         NotesAPI.createNote($scope.newNote)
         .then(function success(res) {
             $location.path('/notes')
