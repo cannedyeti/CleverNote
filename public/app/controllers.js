@@ -49,16 +49,37 @@ angular.module('AppCtrl', ['AppServices'])
         title: '',
         body: '',
         date: $scope.d(),
-        author: $scope.findUserName()
+        author: ''
     }
     $scope.createNote = function() {
         // to implement
         NotesAPI.createNote($scope.newNote)
         .then(function success(res) {
+            console.log(res.config.data)
             $location.path('/notes')
         }, function error(err) {
             console.log("Error", err)
         })
     };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI'])
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+    $scope.notes = [];
+    $scope.searchTerm;
+
+    NotesAPI.getAllNotes()
+    .then(function success(res) {
+        $scope.notes = res.config.data;
+    }, function error(err) {
+        console.log("Error", err);
+    })
+
+    // $scope.searchNotes = function() {
+    //     console.log("here")
+    //     NotesAPI.getAllNotes($scope.searchTerm).then(function (res) {
+    //         console.log(res)
+    //         $scope.notes = res.config.data;
+    //     }, function error(err) {
+    //         console.log("Nooo", err)
+    //     })
+    // }
+}]);
