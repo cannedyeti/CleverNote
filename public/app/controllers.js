@@ -103,12 +103,17 @@ angular.module('AppCtrl', ['AppServices'])
 
       NotesAPI.getNote($stateParams.id)
       .then(function success(res){
-        console.log(res.data)
-        // $scope.note = res.data
+        $scope.note = res.data
       }, function error(err){
         console.log(err)
       })
 
-
+      NotesApi.updateNote($stateParams.id)
+      .then(function success(res){
+        console.log("update note")
+        $scope.note = res.data
+      }, function error(err){
+        console.log(err);
+      })
 
 }])

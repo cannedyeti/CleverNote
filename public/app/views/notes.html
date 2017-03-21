@@ -12,7 +12,7 @@
   </div>
   <div class="well" ng-repeat="note in notes | filter:{title:search} track by note._id">
     <h1>{{note.noteTitle}}</h1>
-    <a ng-href="/notes/{{note.object.id}}">View Note</a>
+    <a ng-href="/notes/{{note._id}}">View Note</a>
     <a ng-click="deleteNote(note._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
   </div>
 </div>
