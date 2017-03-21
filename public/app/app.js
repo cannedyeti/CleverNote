@@ -25,7 +25,11 @@ app.config([
     .state('404', {
         url: '/404',
         templateUrl: 'app/views/404.html'
-    });
+    })
+    .state("notes", {
+        url: "/notes",
+        templateUrl: 'app/views/createNote.html'
+    })
     $locationProvider.html5Mode(true);
     }])
     .config(["$httpProvider", function($httpProvider) {
