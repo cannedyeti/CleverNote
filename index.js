@@ -13,6 +13,7 @@ var app = express();
 // mongoose models and connection
 var mongoose = require('mongoose');
 var User = require('./models/user');
+var Note = require('./models/notes');
 mongoose.connect('mongodb://localhost/AppServices');
 
 // decode POST data in JSON and URL encoded formats
@@ -26,6 +27,7 @@ app.use(require('morgan')('dev'));
 app.use('/api/users', expressJWT({secret: secret}).unless({
     path: [{ url: '/api/users', methods: ['POST'] }]
 }), require('./controllers/users'));
+app.use('/api/notes', require('./controllers/notes'));
 
 // this middleware will check if expressJWT did not authorize the user, and return a message
 app.use(function (err, req, res, next) {
