@@ -1,7 +1,7 @@
-# Clever Note
+# **Clever Note**
 ## Connor, Crystal, Hailey, Kyle
 
-# MEAN Hackathon
+# **MEAN Hackathon**
 
 # Part 1
 
@@ -48,4 +48,14 @@ Now that you have a MVP for your API, add onto it by creating an Angular app to 
     REMINDER: You must deploy to Heroku sometime today (Hint: https://devcenter.heroku.com/articles/mongolab#adding-mongolab-as-a-heroku-add-on)
 
 
+## Task List:
+- [] Views
+- [x] Databases
+- [] Routes
+    * Get all notes
+    * Get note detail
+    * Add note
+    * Update note
+    * Delete note
 
+- [x] Auth
