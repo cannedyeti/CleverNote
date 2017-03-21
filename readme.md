@@ -1,11 +1,11 @@
-#Clever Note
-##Conner, Crystal, Hailey, Kyle
+# **Clever Note**
+## Connor, Crystal, Hailey, Kyle
 
-#MEAN Hackathon
+# **MEAN Hackathon**
 
-#Part 1
+# Part 1
 
-##Objectives
+## Objectives
     Use prior concepts like RESTful endpoints, JWT tokens, and MongoDB to solve a problem
     Create a functioning API with a team
 
@@ -28,8 +28,8 @@ Your theme for this hackathon will be given to you by your instructors.
     Note that there is a lot to do: teamwork is key
 
 
-#Part 2
-##Objectives
+# Part 2
+## Objectives
 
     Utilize the API from this morning by making an Angular client
     Create a functioning app with a backend API and frontend MVC client
@@ -48,4 +48,14 @@ Now that you have a MVP for your API, add onto it by creating an Angular app to 
     REMINDER: You must deploy to Heroku sometime today (Hint: https://devcenter.heroku.com/articles/mongolab#adding-mongolab-as-a-heroku-add-on)
 
 
+## Task List:
+- [] Views
+- [x] Databases
+- [] Routes
+    * Get all notes
+    * Get note detail
+    * Add note
+    * Update note
+    * Delete note
 
+- [x] Auth
