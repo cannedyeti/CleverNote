@@ -49,14 +49,6 @@ angular.module('AppServices', ['ngResource'])
 .factory('NotesAPI', ['$http', '$location', function($http, $location){
     return {
         createNote: function(note) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            return $http.post('/api/notes', note)
-        }
-=======
-            console.log("This is whats in the db", note)
-=======
->>>>>>> cd6d120343a79c0bc4a8a8958e18489c8f451f5e
             return $http.post('/api/notes', note)
         },
         getAllNotes: function(){
@@ -83,6 +75,5 @@ angular.module('AppServices', ['ngResource'])
                 return null;
             });
         }    
->>>>>>> 0faf7dde23fb37724c867f0eee6b4feb54b67b43
     }
 }])
