@@ -24,7 +24,7 @@ angular.module('AppServices', ['ngResource'])
             console.log("payload decoded: " + payload);
             return payload;
             }
-            catch (err){ 
+            catch (err){
             // graceful err handling
             console.log(err)
             return false;
@@ -45,4 +45,11 @@ angular.module('AppServices', ['ngResource'])
         return config;
         }
     }
-}]);
+}])
+.factory('NotesAPI', ['$http', '$location', function($http, $location){
+    return {
+        createNote: function(note) {
+            return $http.post('/api/notes', note)
+        }
+    }
+}])
