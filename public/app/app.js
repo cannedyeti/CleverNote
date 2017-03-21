@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ui.router', 'AppCtrl']);
+var app = angular.module('CleverNote', ['ui.router', 'AppCtrl']);
 
 app.config([
     '$stateProvider',
