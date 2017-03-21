@@ -75,8 +75,13 @@ angular.module('AppServices', ['ngResource'])
             });
         }
     }
+<<<<<<< HEAD
     }])
     .factory("UsersAPI", ["$http", function($http) {
+=======
+}])
+.factory("UsersAPI", ["$http", function($http) {
+>>>>>>> 2e48ca2a085e445e6f484b6d2684fe17c33b4a8b
     return {
         getUser: function(id) {
             console.log('here i am', id)
@@ -84,4 +89,8 @@ angular.module('AppServices', ['ngResource'])
             return $http.get('api/users/' + id)
         }
     }
+<<<<<<< HEAD
 }])
+=======
+}])
+>>>>>>> 2e48ca2a085e445e6f484b6d2684fe17c33b4a8b
