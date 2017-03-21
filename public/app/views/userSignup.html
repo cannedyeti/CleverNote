@@ -1,32 +1,31 @@
-<div class="container">
-  <div class="form col-xs-6 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3">  
-      <form ng-submit="userSignup()">
-        <legend>Signup</legend>
-        <div class="form-group">
-          <label>Name:</label>
-          <input type="text" name="name" class="form-control" placeholder="Enter your first name or nickname here" ng-model="user.name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email address" ng-model="user.email">
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" class="form-control" id="password" placeholder="********" ng-model="user.password">
-        </div>
-        <div class="form-group">
-          <label>Class:</label>
-          <select ng-model="user.roomName" class="form-control">
-            <option value="WDI">WDI</option>
-            <option value="UXDI">UXDI</option>
-            <option value="DSI">DSI</option>
-            <option value="ADI">ADI</option>
-            <option value="iOSDI">iOSDI</option>
-          </select>
-        </div>
-          <button type="submit" class="btn btn-primary">Signup</button>
-      </form>
-    <br>
-  </div>
+<div class="form col-xs-6 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 container">  
+  <br>
+    <form ng-submit="userSignup()">
+      <legend>Signup</legend>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="name" class="form-control" placeholder="Enter your first name or nickname here" ng-model="user.name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email address" ng-model="user.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="********" ng-model="user.password">
+      </div>
+      <div class="form-group">
+        <label>Class:</label>
+        <select ng-model="user.roomName" class="form-control">
+          <option value="WDI">WDI</option>
+          <option value="UXDI">UXDI</option>
+          <option value="DSI">DSI</option>
+          <option value="ADI">ADI</option>
+          <option value="iOSDI">iOSDI</option>
+        </select>
+      </div>
+        <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+  <br>
 </div>
 
