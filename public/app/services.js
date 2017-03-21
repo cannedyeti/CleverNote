@@ -49,7 +49,6 @@ angular.module('AppServices', ['ngResource'])
 .factory('NotesAPI', ['$http', '$location', function($http, $location){
     return {
         createNote: function(note) {
-            console.log("This is whats in the db", note)
             return $http.post('/api/notes', note)
         },
         getAllNotes: function(){

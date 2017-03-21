@@ -1,4 +1,4 @@
-<form ng-submit="createNote()">
+<form>
     <legend>Create</legend>
 
     <div class="form-group">
@@ -12,5 +12,5 @@
     <div class="form-group">
         <input type="hidden" ng-value="d" ng-model="newNote.date">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" ng-click="addNote()">Submit</button>
 </form>
