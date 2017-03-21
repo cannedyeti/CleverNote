@@ -1,5 +1,5 @@
 #Clever Note
-##Conner, Crystal, Hailey, Kyle
+##Connor, Crystal, Hailey, Kyle
 
 #MEAN Hackathon
 
