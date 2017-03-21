@@ -4,6 +4,7 @@ var NotesSchema = new mongoose.Schema({
   noteTitle: String,
   noteBody: String,
   noteDate: Date,
+  roomName: String,
   noteAuthor: { type: mongoose.Schema.Types.ObjectId, ref: "user"}
 });
 
