@@ -1,7 +1,4 @@
 angular.module('AppServices', ['ngResource'])
-.factory('Recipe', ['$resource', function($resource) {
-    return $resource('/api/recipes/:id');
-}])
 .factory("Auth", ["$window", function($window) {
     return {
         saveToken: function(token) {

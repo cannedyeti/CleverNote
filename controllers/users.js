@@ -14,15 +14,12 @@ router.route('/')
     // find the user first in case the email already exists
     User.findOne({ email: req.body.email }, function(err, user) {
       if (user) return res.status(400).send({ message: 'Email already exists' });
-
       User.create(req.body, function(err, user) {
         if (err) return res.status(500).send(err);
-
         return res.send(user);
       });
     });
   });
-
 router.get('/:id', function(req, res) {
   User.findById(req.params.id, function(err, user) {
     if (err) return res.status(500).send(err);
