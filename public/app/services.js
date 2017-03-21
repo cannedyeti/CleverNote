@@ -73,10 +73,9 @@ angular.module('AppServices', ['ngResource'])
             }, function error (err){
                 return null;
             });
-        }    
+        }
     }
 }])
-<<<<<<< HEAD
 .factory("UsersAPI", ["$http", function($http) {
     return {
         getUser: function(id) {
@@ -86,5 +85,3 @@ angular.module('AppServices', ['ngResource'])
         }
     }
 }])
-=======
->>>>>>> 1c7b010be754057d617f7a6e9ab501e1e183ef7c

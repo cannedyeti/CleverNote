@@ -4,15 +4,15 @@
     <a href="/UXDI" class="btn classNav">UXDI</a>
     <a href="/iOSDI" class="btn classNav">iOSDI</a>
     <a href="/DSI" class="btn classNav">DSI</a>
-    <a href="/ADI" class="btn classNav">ADI</a>  
+    <a href="/ADI" class="btn classNav">ADI</a>
   </div>
   <div class="form-group">
     <label for="search">Search:</label>
     <input type="text" class="form-control" id="search" ng-model="search">
   </div>
   <div class="well" ng-repeat="note in notes | filter:{title:search} track by note._id">
-    <h1>{{note.title}}</h1>
-    <a ng-href="/recipes/{{note._id}}">View Note</a>
+    <h1>{{note.noteTitle}}</h1>
+    <a ng-href="/notes/{{note.object.id}}">View Note</a>
     <a ng-click="deleteNote(note._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
   </div>
 </div>
