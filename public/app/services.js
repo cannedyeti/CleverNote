@@ -45,4 +45,17 @@ angular.module('AppServices', ['ngResource'])
         return config;
         }
     }
-}]);
+}])
+.factory('NotesAPI', ['$http', '$location', function($http, $location){
+    return {
+        createNote: function(note) {
+            $http.post('/api/notes', note)
+            .then(function success(res) {
+                console.log(res.config.data)
+                $location.path("/");
+            }, function error(err) {
+                console.log("Error", err)
+            })
+        }
+    }
+}])
