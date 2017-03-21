@@ -49,12 +49,13 @@ angular.module('AppCtrl', ['AppServices'])
         var today = new Date();
         return today;
     }
+    
     var currentUser = null;
     $scope.temp = Auth.currentUser();
     var curUser = $scope.temp.id;
     UsersAPI.getUser(curUser).then(function(user){
-        currentUser = user.data.name;
-        console.log("User val", user.data.name)
+        currentUser = user.data;
+        console.log("User val", user.data)
 
         $scope.newNote = {
             noteTitle: '',
