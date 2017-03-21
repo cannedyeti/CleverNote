@@ -49,32 +49,31 @@ angular.module('AppCtrl', ['AppServices'])
         var today = new Date();
         return today;
     }
-
+    var currentUser = null;
     $scope.temp = Auth.currentUser();
     var curUser = $scope.temp.id;
-    var currentUser = UsersAPI.getUser(curUser)
-    console.log(curUser)
-    console.log("User:", currentUser)
+    UsersAPI.getUser(curUser).then(function(user){
+        currentUser = user.data.name;
+        console.log("User val", user)
 
-    $scope.newNote = {
-        noteTitle: '',
-        noteBody: '',
-        noteDate: $scope.d(),
-        noteAuthor: $scope.currentUser
-    }
+        $scope.newNote = {
+            noteTitle: '',
+            noteBody: '',
+            noteDate: $scope.d(),
+            noteAuthor: currentUser
+        }
+    })
     $scope.addNote = function() {
         // to implement
-        console.log("This is what should be in the console:", $scope.newNote)
         NotesAPI.createNote($scope.newNote)
         .then(function success(res) {
-            console.log("this is the res:", res.config.data)
             $location.path('/notes')
         }, function error(err) {
             console.log("Error with create", err)
         })
     };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'Users', function($scope, $location, $http, Auth, NotesAPI, Users){
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'UsersAPI', function($scope, $location, $http, Auth, NotesAPI, UsersAPI){
     $scope.notes = [];
     $scope.searchTerm;
 
