@@ -2,13 +2,13 @@ angular.module('AppServices', ['ngResource'])
 .factory("Auth", ["$window", function($window) {
     return {
         saveToken: function(token) {
-        $window.localStorage['secretrecipes-token'] = token;
+        $window.localStorage['user-token'] = token;
         },
         removeToken: function() {
-        $window.localStorage.removeItem('secretrecipes-token');
+        $window.localStorage.removeItem('user-token');
         },
         getToken: function() {
-        return $window.localStorage['secretrecipes-token'];
+        return $window.localStorage['user-token'];
         },
         isLoggedIn: function() {
         var token = this.getToken();
@@ -21,7 +21,6 @@ angular.module('AppServices', ['ngResource'])
             try {
             // vuln code
             var payload = JSON.parse($window.atob(token.split(".")[1]));
-            console.log("payload decoded: " + payload);
             return payload;
             }
             catch (err){ 
@@ -75,5 +74,14 @@ angular.module('AppServices', ['ngResource'])
                 return null;
             });
         }    
+    }
+}])
+.factory("UsersAPI", ["$http", function($http) {
+    return {
+        getUser: function(id) {
+            console.log('here i am', id)
+            console.log($http.get('api/users/' + id))
+            return $http.get('api/users/' + id)
+        }
     }
 }])
