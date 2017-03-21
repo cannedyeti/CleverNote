@@ -18,12 +18,19 @@ router.route('/')
       });
     });
 
-router.get('/:id', function(req, res) {
-  Notes.findById(req.params.id, function(err, note) {
-    if (err) return res.status(500).send(err);
+router.route('/:id')
+    .get(function(req, res) {
+      Notes.findById(req.params.id, function(err, note) {
+        if (err) return res.status(500).send(err);
 
-    return res.send(note);
-  });
+        return res.send(note);
+    })
+    .put(function(req, res){
+      //update note here
+    })
+    .delete(function(req, res){
+      //delete note here
+    })
 });
 
 module.exports = router;
