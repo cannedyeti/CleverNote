@@ -64,5 +64,4 @@ angular.module('AppCtrl', ['AppServices'])
             console.log("Error", err)
         })
     };
-
 }])
