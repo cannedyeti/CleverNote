@@ -45,11 +45,14 @@ angular.module('AppCtrl', ['AppServices'])
         var today = new Date();
         return today;
     }
+    $scope.currentUser = Auth.currentUser();
+    console.log($scope.currentUser)
+
     $scope.newNote = {
         noteTitle: '',
         noteBody: '',
         noteDate: $scope.d(),
-        noteAuthor: ''
+        noteAuthor: $scope.currentUser
     }
     $scope.addNote = function() {
         // to implement
@@ -59,7 +62,7 @@ angular.module('AppCtrl', ['AppServices'])
             console.log("this is the res:", res.config.data)
             $location.path('/notes')
         }, function error(err) {
-            console.log("Error", err)
+            console.log("Error with create", err)
         })
     };
 }])
