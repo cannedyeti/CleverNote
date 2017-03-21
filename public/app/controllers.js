@@ -40,21 +40,26 @@ angular.module('AppCtrl', ['AppServices'])
     $location.path("/login");
   };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', function($scope, $location, $http){
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', function($scope, $location, $http, Auth){
     $scope.d = function() {
         var today = new Date();
         return today;
     }
-    $scope.note = {
+    $scope.findUserName = function() {
+        return Auth.getToken();
+    }
+    $scope.date = $scope.d;
+    $scope.notes = {
         title: '',
         body: '',
-        date: $scope.d,
-        author: ''
+        date: $scope.d(),
+        author: $scope.findUserName()
     }
     $scope.createNote = function() {
         // to implement
         $http.post('/api/notes', $scope.notes).then(function success(res) {
-            $state.go("home");
+            console.log(res.config.data)
+            $location.path("/");
         }, function error(err) {
             console.log("Error", err)
         })
