@@ -88,15 +88,15 @@ angular.module('AppCtrl', ['AppServices'])
         console.log("Error", err);
     })
 
-    // $scope.searchNotes = function() {
-    //     console.log("here")
-    //     NotesAPI.getAllNotes($scope.searchTerm).then(function (res) {
-    //         console.log(res)
-    //         $scope.notes = res.config.data;
-    //     }, function error(err) {
-    //         console.log("Nooo", err)
-    //     })
-    // }
+    $scope.searchNotes = function() {
+        console.log("here")
+        NotesAPI.getAllNotes($scope.searchTerm).then(function (res) {
+            console.log(res)
+            $scope.notes = res.config.data;
+        }, function error(err) {
+            console.log("Nooo", err)
+        })
+    }
 }])
 .controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
       $scope.note = {};
@@ -108,12 +108,18 @@ angular.module('AppCtrl', ['AppServices'])
         console.log(err)
       })
 
-      NotesApi.updateNote($stateParams.id)
-      .then(function success(res){
-        console.log("update note")
-        $scope.note = res.data
-      }, function error(err){
-        console.log(err);
-      })
+      $scope.updateNote = function(){
+        NotesAPI.updateNote($scope.note).then(function success(res){
+          console.log("success", res)
+          $location.path("/notes/" + $scope.note.id)
+        }, function error(err){
+          console.log(err);
+        })
+      }
+
+      $scope.deleteNote = function(){
+        NotesAPI.deleteNote($stateParams.id)
+        $location.path("/notes")
+      }
 
 }])
