@@ -28,7 +28,8 @@ app.config([
     })
     .state("notes", {
         url: "/notes",
-        templateUrl: 'app/views/createNote.html'
+        templateUrl: 'app/views/createNote.html',
+        controller: 'NotesCtrl'
     })
     $locationProvider.html5Mode(true);
     }])

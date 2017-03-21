@@ -45,16 +45,18 @@ angular.module('AppCtrl', ['AppServices'])
         var today = new Date();
         return today;
     }
-    $scope.note = {
+    $scope.date = $scope.d;
+    $scope.notes = {
         title: '',
         body: '',
-        date: $scope.d,
+        date: $scope.d(),
         author: ''
     }
     $scope.createNote = function() {
         // to implement
         $http.post('/api/notes', $scope.notes).then(function success(res) {
-            $state.go("home");
+            console.log(res.config.data)
+            $location.path("/");
         }, function error(err) {
             console.log("Error", err)
         })
