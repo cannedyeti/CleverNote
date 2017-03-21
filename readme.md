@@ -52,10 +52,10 @@ Now that you have a MVP for your API, add onto it by creating an Angular app to 
 - [] Views
 - [x] Databases
 - [] Routes
-    * Get all notes
-    * Get note detail
-    * Add note
-    * Update note
-    * Delete note
+    * [x] Get all notes
+    * [x] Get note detail
+    * [x] Add note
+    * [] Update note
+    * [] Delete note
 
 - [x] Auth
