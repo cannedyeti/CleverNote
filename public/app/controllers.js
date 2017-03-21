@@ -46,16 +46,17 @@ angular.module('AppCtrl', ['AppServices'])
         return today;
     }
     $scope.newNote = {
-        title: '',
-        body: '',
-        date: $scope.d(),
-        author: ''
+        noteTitle: '',
+        noteBody: '',
+        noteDate: $scope.d(),
+        noteAuthor: ''
     }
-    $scope.createNote = function() {
+    $scope.addNote = function() {
         // to implement
+        console.log("This is what should be in the console:", $scope.newNote)
         NotesAPI.createNote($scope.newNote)
         .then(function success(res) {
-            console.log(res.config.data)
+            console.log("this is the res:", res.config.data)
             $location.path('/notes')
         }, function error(err) {
             console.log("Error", err)
@@ -68,7 +69,8 @@ angular.module('AppCtrl', ['AppServices'])
 
     NotesAPI.getAllNotes()
     .then(function success(res) {
-        $scope.notes = res.config.data;
+        console.log(res)
+        $scope.notes = res.data;
     }, function error(err) {
         console.log("Error", err);
     })

@@ -50,10 +50,13 @@ angular.module('AppServices', ['ngResource'])
     return {
         createNote: function(note) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return $http.post('/api/notes', note)
         }
 =======
             console.log("This is whats in the db", note)
+=======
+>>>>>>> cd6d120343a79c0bc4a8a8958e18489c8f451f5e
             return $http.post('/api/notes', note)
         },
         getAllNotes: function(){
