@@ -29,7 +29,7 @@ app.config([
     .state("createNote", {
         url: "/notes/new",
         templateUrl: 'app/views/createNote.html',
-        controller: 'NotesCtrl'
+        controller: 'NewNotesCtrl'
     })
     .state('note',{
         url: "/notes",
