@@ -36,6 +36,31 @@ app.config([
         templateUrl: "app/views/notes.html",
         controller: "NotesCtrl"
     })
+    .state('wdi',{
+        url: "/WDI",
+        templateUrl: "app/views/rooms/wdi.html",
+        controller: "NotesCtrl"
+    })
+    .state('uxdi',{
+        url: "/UXDI",
+        templateUrl: 'app/views/rooms/uxdi.html',
+        controller: "NotesCtrl"
+    })
+    .state('iosdi',{
+        url: '/iOSDI',
+        templateUrl: 'app/views/rooms/iosdi.html',
+        controller: 'NotesCtrl'
+    })
+    .state('dsi',{
+        url: '/DSI',
+        templateUrl: 'app/views/rooms/dsi',
+        controller: 'NotesCtrl'
+    })
+    .state('adi',{
+        url: '/ADI',
+        templateUrl: 'app/views/rooms/adi.html',
+        controller: 'NotesCtrl'
+    })
     $locationProvider.html5Mode(true);
     }])
     .config(["$httpProvider", function($httpProvider) {
