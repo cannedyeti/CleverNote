@@ -1,11 +1,11 @@
-#Clever Note
-##Connor, Crystal, Hailey, Kyle
+# Clever Note
+## Connor, Crystal, Hailey, Kyle
 
-#MEAN Hackathon
+# MEAN Hackathon
 
-#Part 1
+# Part 1
 
-##Objectives
+## Objectives
     Use prior concepts like RESTful endpoints, JWT tokens, and MongoDB to solve a problem
     Create a functioning API with a team
 
@@ -28,8 +28,8 @@ Your theme for this hackathon will be given to you by your instructors.
     Note that there is a lot to do: teamwork is key
 
 
-#Part 2
-##Objectives
+# Part 2
+## Objectives
 
     Utilize the API from this morning by making an Angular client
     Create a functioning app with a backend API and frontend MVC client
