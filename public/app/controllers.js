@@ -1,8 +1,10 @@
 angular.module('AppCtrl', ['AppServices'])
 .controller('SignupCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $scope.user = {
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        roomName: ''
     };
     $scope.userSignup = function() {
         // to implement
@@ -15,13 +17,15 @@ angular.module('AppCtrl', ['AppServices'])
 }])
 .controller('LoginCtrl', ['$scope', '$http', '$state', 'Auth', function($scope, $http, $state, Auth) {
     $scope.user = {
+        name: '',
         email: '',
-        password: ''
     };
     $scope.userLogin = function() {
         // to implement
         $http.post("/api/auth", $scope.user).then(function success(res) {
         Auth.saveToken(res.data.token);
+        console.log(res.data)
+        // Auth.saveUser(res.data);
         $state.go("home")
         }, function error(err) {
             console.log("Yo dawg")
@@ -40,13 +44,17 @@ angular.module('AppCtrl', ['AppServices'])
     $location.path("/login");
   };
 }])
-.controller('NewNotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+.controller('NewNotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'UsersAPI', function($scope, $location, $http, Auth, NotesAPI, UsersAPI){
     $scope.d = function() {
         var today = new Date();
         return today;
     }
-    $scope.currentUser = Auth.currentUser();
-    console.log($scope.currentUser)
+
+    $scope.temp = Auth.currentUser();
+    var curUser = $scope.temp.id;
+    var currentUser = UsersAPI.getUser(curUser)
+    console.log(curUser)
+    console.log("User:", currentUser)
 
     $scope.newNote = {
         noteTitle: '',
@@ -66,7 +74,7 @@ angular.module('AppCtrl', ['AppServices'])
         })
     };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', 'Users', function($scope, $location, $http, Auth, NotesAPI, Users){
     $scope.notes = [];
     $scope.searchTerm;
 
@@ -87,4 +95,5 @@ angular.module('AppCtrl', ['AppServices'])
     //         console.log("Nooo", err)
     //     })
     // }
-}]);
+}])
+
