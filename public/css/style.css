@@ -1,6 +1,10 @@
 body{
-  background-color: lightGray;
+  background-color: lightgrey;
 }
 .classNav{
-  background-color: lightGray;
+  background-color: lightgrey;
+}
+
+.container{
+	background-color: white;
 }
