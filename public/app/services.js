@@ -45,4 +45,36 @@ angular.module('AppServices', ['ngResource'])
         return config;
         }
     }
-}]);
+}])
+.factory('NotesAPI', ['$http', '$location', function($http, $location){
+    return {
+        createNote: function(note) {
+            console.log("This is whats in the db", note)
+            return $http.post('/api/notes', note)
+        },
+        getAllNotes: function(){
+            return $http.get("/api/notes/");
+        },
+        getNote: function(id){
+            return $http.get("/api/notes/" + id);
+        },
+        deleteNote: function(id) {
+            return $http.delete("/api/notes/" + id)
+            .then(function success(res) {
+                console.log("nice delete!", res);
+                return res.data;
+            }, function error(err) {
+                console.log("There was an error!", err);
+                return null;
+            })
+        },
+        updateNote: function(note) {
+            return $http.put("api/notes/" + note._id, note)
+            .then(function success(res){
+                return res.data
+            }, function error (err){
+                return null;
+            });
+        }    
+    }
+}])

@@ -26,9 +26,15 @@ app.config([
         url: '/404',
         templateUrl: 'app/views/404.html'
     })
-    .state("notes", {
+    .state("createNote", {
+        url: "/notes/new",
+        templateUrl: 'app/views/createNote.html',
+        controller: 'NewNotesCtrl'
+    })
+    .state('note',{
         url: "/notes",
-        templateUrl: 'app/views/createNote.html'
+        templateUrl: "app/views/notes.html",
+        controller: "NotesCtrl"
     })
     $locationProvider.html5Mode(true);
     }])

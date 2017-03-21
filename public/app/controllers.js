@@ -40,24 +40,46 @@ angular.module('AppCtrl', ['AppServices'])
     $location.path("/login");
   };
 }])
-.controller('NotesCtrl', ['$scope', '$location', '$http', function($scope, $location, $http){
+.controller('NewNotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
     $scope.d = function() {
         var today = new Date();
         return today;
     }
-    $scope.note = {
+    $scope.newNote = {
         title: '',
         body: '',
-        date: $scope.d,
+        date: $scope.d(),
         author: ''
     }
     $scope.createNote = function() {
         // to implement
-        $http.post('/api/notes', $scope.notes).then(function success(res) {
-            $state.go("home");
+        NotesAPI.createNote($scope.newNote)
+        .then(function success(res) {
+            console.log(res.config.data)
+            $location.path('/notes')
         }, function error(err) {
             console.log("Error", err)
         })
     };
-
 }])
+.controller('NotesCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', function($scope, $location, $http, Auth, NotesAPI){
+    $scope.notes = [];
+    $scope.searchTerm;
+
+    NotesAPI.getAllNotes()
+    .then(function success(res) {
+        $scope.notes = res.config.data;
+    }, function error(err) {
+        console.log("Error", err);
+    })
+
+    // $scope.searchNotes = function() {
+    //     console.log("here")
+    //     NotesAPI.getAllNotes($scope.searchTerm).then(function (res) {
+    //         console.log(res)
+    //         $scope.notes = res.config.data;
+    //     }, function error(err) {
+    //         console.log("Nooo", err)
+    //     })
+    // }
+}]);
