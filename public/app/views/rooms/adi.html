@@ -1,12 +1,14 @@
-<h1>ADI</h1>
-<div class="form-group">
-  <label for="search">Search:</label>
-  <input type="text" class="form-control" id="search" ng-model="search">
-</div>
-<div class="well" ng-repeat="note in notes | filter:{title:search} track by note._id">
-  <div ng-if="">
-    <h1>{{note.title}}</h1>
-    <a ng-href="/recipes/{{note._id}}">View Note</a>
-    <a ng-click="deleteNote(note._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
-  </div>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-sm-offset-3">
+	<h1>ADI</h1>
+	<div class="form-group">
+	  <label for="search">Search:</label>
+	  <input type="text" class="form-control" id="search" ng-model="search">
+	</div>
+	<div class="well" ng-repeat="note in notes | filter:{title:search} track by note._id">
+	  <div ng-if="">
+	    <h1>{{note.title}}</h1>
+	    <a ng-href="/recipes/{{note._id}}">View Note</a>
+	    <a ng-click="deleteNote(note._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
+	  </div>
+	</div>
 </div>
