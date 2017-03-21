@@ -53,7 +53,7 @@ app.config([
     })
     .state('dsi',{
         url: '/DSI',
-        templateUrl: 'app/views/rooms/dsi',
+        templateUrl: 'app/views/rooms/dsi.html',
         controller: 'NotesCtrl'
     })
     .state('adi',{
