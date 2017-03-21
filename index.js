@@ -27,7 +27,10 @@ app.use(require('morgan')('dev'));
 app.use('/api/users', expressJWT({secret: secret}).unless({
     path: [{ url: '/api/users', methods: ['POST'] }]
 }), require('./controllers/users'));
-app.use('/api/notes', require('./controllers/notes'));
+
+app.use('/api/notes', expressJWT({secret: secret}).unless({
+    path: [{ url: '/api/notes', methods: ['GET'] }]
+}), require('./controllers/notes'));
 
 // this middleware will check if expressJWT did not authorize the user, and return a message
 app.use(function (err, req, res, next) {
