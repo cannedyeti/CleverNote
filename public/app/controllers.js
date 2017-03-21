@@ -28,9 +28,6 @@ angular.module('AppCtrl', ['AppServices'])
         })
         }
 }])
-// .controller('AlertsCtrl', ['$scope', 'Alerts', function($scope, Alerts){
-//     $scope.alerts = Alerts.getAll();
-// }])
 .controller('NavCtrl', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
   $scope.isLoggedIn = function() {
     return Auth.isLoggedIn();
@@ -49,7 +46,6 @@ angular.module('AppCtrl', ['AppServices'])
         return today;
     }
     $scope.note = {
-        roomName: '',
         title: '',
         body: '',
         date: $scope.d,
