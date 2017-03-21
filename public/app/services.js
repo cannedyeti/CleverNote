@@ -1,5 +1,5 @@
 angular.module('AppServices', ['ngResource'])
-.factory("Auth", ["$window", function($window) {
+    .factory("Auth", ["$window", function($window) {
     return {
         saveToken: function(token) {
         $window.localStorage['user-token'] = token;
@@ -23,7 +23,7 @@ angular.module('AppServices', ['ngResource'])
             var payload = JSON.parse($window.atob(token.split(".")[1]));
             return payload;
             }
-            catch (err){ 
+            catch (err){
             // graceful err handling
             console.log(err)
             return false;
@@ -33,8 +33,8 @@ angular.module('AppServices', ['ngResource'])
         }
         }
     }
-}])
-.factory("AuthInterceptor", ["Auth", function(Auth) {
+    }])
+    .factory("AuthInterceptor", ["Auth", function(Auth) {
     return {
         request: function(config) {
         var token = Auth.getToken();
@@ -44,8 +44,8 @@ angular.module('AppServices', ['ngResource'])
         return config;
         }
     }
-}])
-.factory('NotesAPI', ['$http', '$location', function($http, $location){
+    }])
+    .factory('NotesAPI', ['$http', '$location', function($http, $location){
     return {
         createNote: function(note) {
             return $http.post('/api/notes', note)
@@ -73,12 +73,13 @@ angular.module('AppServices', ['ngResource'])
             }, function error (err){
                 return null;
             });
-        }    
+        }
     }
-}])
-.factory("UsersAPI", ["$http", function($http) {
+    }])
+    .factory("UsersAPI", ["$http", function($http) {
     return {
         getUser: function(id) {
+            console.log('here i am', id)
             console.log($http.get('api/users/' + id))
             return $http.get('api/users/' + id)
         }
