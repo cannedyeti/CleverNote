@@ -49,18 +49,20 @@ angular.module('AppCtrl', ['AppServices'])
         var today = new Date();
         return today;
     }
-    var currentUser = null;
+
     $scope.temp = Auth.currentUser();
     var curUser = $scope.temp.id;
     UsersAPI.getUser(curUser).then(function(user){
-        currentUser = user.data.name;
-        console.log("User val", user.data.name)
+        var currentUser = user.data.name;
+        var currentRoom = user.data.roomName;
+        console.log("User val", user.data.name + " in the", currentRoom)
 
         $scope.newNote = {
             noteTitle: '',
             noteBody: '',
             noteDate: $scope.d(),
-            noteAuthor: currentUser
+            noteAuthor: currentUser,
+            roomName: currentRoom
         }
     })
     $scope.addNote = function() {
@@ -96,4 +98,17 @@ angular.module('AppCtrl', ['AppServices'])
     //     })
     // }
 }])
+.controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
+      $scope.note = {};
 
+      NotesAPI.getNote($stateParams.id)
+      .then(function success(res){
+        console.log(res.data);
+        // $scope.note = res.data
+      }, function error(err){
+        console.log(err)
+      })
+
+
+
+}])

@@ -23,7 +23,7 @@ angular.module('AppServices', ['ngResource'])
             var payload = JSON.parse($window.atob(token.split(".")[1]));
             return payload;
             }
-            catch (err){ 
+            catch (err){
             // graceful err handling
             console.log(err)
             return false;
@@ -76,6 +76,7 @@ angular.module('AppServices', ['ngResource'])
         }    
     }
 }])
+<<<<<<< HEAD
 .factory("UsersAPI", ["$http", function($http) {
     return {
         getUser: function(id) {
@@ -85,3 +86,5 @@ angular.module('AppServices', ['ngResource'])
         }
     }
 }])
+=======
+>>>>>>> 1c7b010be754057d617f7a6e9ab501e1e183ef7c
