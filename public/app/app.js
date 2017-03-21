@@ -27,7 +27,7 @@ app.config([
         templateUrl: 'app/views/404.html'
     })
     .state("notes", {
-        url: "/notes",
+        url: "/notes/new",
         templateUrl: 'app/views/createNote.html',
         controller: 'NotesCtrl'
     })
