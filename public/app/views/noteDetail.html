@@ -8,8 +8,8 @@
     <br>
     <div class="noteButtons">
       <a class="btn siteBtn btn-sm" ng-href="/notes">View All Notes</a>
-      <a class="btn siteBtn btn-sm" ng-href="/notes/{{note._id}}/edit"> Edit</a>
-      <a ng-if="user.data.name == note.noteAuthor" class="btn siteBtn btn-sm" ng-click="deleteNote(note._id)">Delete</a>
+      <a ng-show="user.name == note.noteAuthor && user.roomName == note.roomName" class="btn siteBtn btn-sm" ng-href="/notes/{{note._id}}/edit"> Edit</a>
+      <a ng-show="user.name == note.noteAuthor && user.roomName == note.roomName" class="btn siteBtn btn-sm" ng-click="deleteNote(note._id)">Delete</a>
     </div>
   </div>
 </div>

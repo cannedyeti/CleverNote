@@ -83,7 +83,6 @@ angular.module('AppServices', ['ngResource'])
 
 }])
 .factory("UsersAPI", ["$http", function($http) {
-
     return {
         getUser: function(id) {
             return $http.get('api/users/' + id)

@@ -46,9 +46,8 @@ a {
   padding-right: 10px;
 }
 .siteBtn {
-  color: rgb(233, 46, 56);
-  border: 2px solid #696969;
-  background-color: rgb(245,245,245);
+  color: white;
+  background-color: rgb(233,46,56);
   margin-bottom: 10px;
 }
 .siteBtn:hover {
