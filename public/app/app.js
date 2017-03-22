@@ -72,6 +72,10 @@ app.config([
         templateUrl: 'app/views/edit.html',
         controller: 'OneNoteCtrl'
     })
+    .state("easterEgg",{
+        url: "/SURPRISE",
+        templateUrl: "app/views/easterEgg.html"
+    })
     $locationProvider.html5Mode(true);
     }])
     .config(["$httpProvider", function($httpProvider) {
