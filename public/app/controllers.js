@@ -104,21 +104,27 @@ angular.module('AppCtrl', ['AppServices'])
     NotesAPI.getNote($stateParams.id)
     .then(function success(res){
     $scope.note = res.data
+        console.log("Here:", $scope.note)
     }, function error(err){
-    console.log(err)
+        console.log(err)
     })
     $scope.updateNote = function(){
-    NotesAPI.updateNote($scope.note).then(function success(res){
-        console.log("success", res)
-        $location.path("/notes/" + $scope.note.id)
-    }, function error(err){
-        console.log(err);
-    })
+        NotesAPI.updateNote($scope.note).then(function success(res){
+            console.log("success", res)
+            $location.path("/notes/" + $scope.note._id)
+        }, function error(err){
+            console.log(err);
+        })
     }
-    $scope.deleteNote = function(){
-    NotesAPI.deleteNote($stateParams.id)
-    $location.path("/notes")
-    }
-
+    $scope.deleteNote = function(id){
+        console.log("delete note w/ id " + id);
+        NotesAPI.deleteNote(id).then(function success(res){
+            console.log("success", res);
+            $location.path("/notes");
+        }, function error(err){
+            console.log(err);
+        });
+        
+    };
 }])
 

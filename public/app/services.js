@@ -57,6 +57,7 @@ angular.module('AppServices', ['ngResource'])
             return $http.get("/api/notes/" + id);
         },
         deleteNote: function(id) {
+            console.log("delete note in notes API")
             return $http.delete("/api/notes/" + id)
             .then(function success(res) {
                 console.log("nice delete!", res);
@@ -67,6 +68,7 @@ angular.module('AppServices', ['ngResource'])
             })
         },
         updateNote: function(note) {
+            console.log("Update:", $http.put("api/notes/" + note._id, note))
             return $http.put("api/notes/" + note._id, note)
             .then(function success(res){
                 return res.data
@@ -84,8 +86,6 @@ angular.module('AppServices', ['ngResource'])
 
     return {
         getUser: function(id) {
-            console.log('here i am', id)
-            console.log($http.get('api/users/' + id))
             return $http.get('api/users/' + id)
         }
     }

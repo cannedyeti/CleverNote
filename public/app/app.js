@@ -66,6 +66,11 @@ app.config([
         templateUrl: "app/views/noteDetail.html",
         controller: 'OneNoteCtrl'
     })
+    .state("editNote", {
+        url: '/notes/:id/edit',
+        templateUrl: 'app/views/edit.html',
+        controller: 'OneNoteCtrl'
+    })
     $locationProvider.html5Mode(true);
     }])
     .config(["$httpProvider", function($httpProvider) {
