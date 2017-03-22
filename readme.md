@@ -49,13 +49,14 @@ Now that you have a MVP for your API, add onto it by creating an Angular app to 
 
 
 ## Task List:
-- [] Views
+- [x] Views
 - [x] Databases
-- [] Routes
+- [x] Routes
     * [x] Get all notes
     * [x] Get note detail
     * [x] Add note
-    * [] Update note
-    * [] Delete note
+    * [x] Update note
+    * [x] Delete note
 
 - [x] Auth
+- [] Style

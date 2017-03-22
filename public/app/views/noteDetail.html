@@ -2,7 +2,7 @@
   <!--  Use this for update link -->
   <div class="text-center">
     <h1>{{note.noteTitle}}</h1>
-    <p class="pull-left">{{ note.noteBody }} </p>
+    <p class="pull-left"><p ng-bind-html="text | markdown">{{ note.noteBody }}</p>
     <br>
     <br>
     <p class="pull-right"><strong>Author:</strong> {{ note.noteAuthor }}</p>
