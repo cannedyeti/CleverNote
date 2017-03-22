@@ -105,6 +105,7 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
 }])
 .controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
     $scope.note = {};
+    $scope.user = Auth.currentUser()
 
     NotesAPI.getNote($stateParams.id)
     .then(function success(res){
