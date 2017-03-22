@@ -97,6 +97,10 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
             console.log("Nooo", err)
         })
     }
+
+    $scope.like = function(note){
+      console.log("like button pushed")
+    }
 }])
 .controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
     $scope.note = {};
@@ -121,9 +125,11 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
         }, function error(err){
             console.log(err);
         });
-        
+
     };
 }])
+<<<<<<< HEAD
+=======
 .config(function ($compileProvider) {
     // Add optional support for custom schema links: "herp://" and "derp://"
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(herp|derp):/);
@@ -132,3 +138,4 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
     $scope.text = '# Heading 1\n- [Link](http://example.com)\n- [Custom Link 1](herp://is.this.working?)\n- [Custom Link 2](derp://is.this.working?)';
   });
 
+>>>>>>> 74638b3094e395c508000244d47b37cebbe8ab21
