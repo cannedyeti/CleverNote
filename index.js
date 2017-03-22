@@ -14,7 +14,7 @@ var app = express();
 var mongoose = require('mongoose');
 var User = require('./models/user');
 // var Note = require('./models/notes');
-mongoose.connect('mongodb://localhost/AppServices');
+mongoose.connect(process.env.MONGOLAB_CYAN_URI || 'mongodb://localhost/AppServices');
 
 // decode POST data in JSON and URL encoded formats
 app.use(bodyParser.json());
