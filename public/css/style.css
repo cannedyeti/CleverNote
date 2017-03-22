@@ -18,22 +18,13 @@ body{
 	margin: 20px;
 }
 
-.homeBtn {
+.icon {
   margin: 0 auto;
-  padding: 20px 30px 20px 30px;
-  border: 2px solid rgba(0,0,0,.7);
-  border-radius: 10px;
   margin-bottom: 20px;
   color: rgba(0,0,0,.7);
 }
 
-.homeBtn:hover {
-  background-color: rgba(0,0,0,.7);
-  color: white;
-
-}
-
-iframe {
+.egg {
   margin: 0 auto;
   display: block;
 }
