@@ -8,3 +8,7 @@ body{
 .container{
 	background-color: white;
 }
+
+.navbar{
+	margin: 20px;
+}
