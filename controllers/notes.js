@@ -13,7 +13,6 @@ router.route('/')
   .post(function(req, res) {
       Notes.create(req.body, function(err, note) {
         if (err) return res.status(500).send(err);
-
         return res.send(note);
       });
     });
@@ -36,7 +35,6 @@ router.route('/:id')
     .get(function(req, res) {
       Notes.findById(req.params.id, function(err, note) {
         if (err) return res.status(500).send(err);
-
         return res.send(note);
     })
 });

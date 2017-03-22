@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<h1>Welcome to CleverNote</h1>
+			<h1>Welcome to <a href="/SURPRISE">CleverNote</a></h1>
 			<hr>
 			<h3>A crowdsource note taking site for <a href="https://generalassemb.ly/" class="text-danger">GA</a> students</h3>
 			<p>Missed a class? Can't understand your own notes? You've come to the right
@@ -9,12 +9,32 @@
 			topics.</p>
 			<hr>
 		</div>
+			<img class="pull-right" src="/img/man.png">
 	</div>
+
 	<div class="row">
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<a class="btn btn-danger" href="/signup">Sign Up!</a>
-			<a class="btn btn-primary" href="/login">Log In</a>
+			<a class="btn btn-danger" ng-hide="isLoggedIn()" href="/signup">Sign Up!</a>
+			<a class="btn btn-primary" ng-hide="isLoggedIn()" href="/login">Log In</a>
 		</div>
 	</div>
-  <br>
+  	<br>
+</div>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="text-center">Popular Rooms</h1>
+			<hr>
+		</div>
+		<div class="col-xs-2 col-xs-offset-3">
+			<h1>One</h1>
+		</div>
+		<div class="col-xs-2">
+			<h1>Two</h1>
+		</div>
+		<div class="col-xs-2">
+			<h1>Three</h1>
+		</div>
+	</div>
 </div>

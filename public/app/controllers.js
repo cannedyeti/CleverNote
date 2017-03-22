@@ -1,4 +1,4 @@
-angular.module('AppCtrl', ['AppServices'])
+angular.module('AppCtrl', ['AppServices', 'markdown'])
 .controller('SignupCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $scope.user = {
         name: '',
@@ -108,7 +108,6 @@ angular.module('AppCtrl', ['AppServices'])
     NotesAPI.getNote($stateParams.id)
     .then(function success(res){
     $scope.note = res.data
-        console.log("Here:", $scope.note)
     }, function error(err){
         console.log(err)
     })
@@ -121,9 +120,7 @@ angular.module('AppCtrl', ['AppServices'])
         })
     }
     $scope.deleteNote = function(id){
-        console.log("delete note w/ id " + id);
         NotesAPI.deleteNote(id).then(function success(res){
-            console.log("success", res);
             $location.path("/notes");
         }, function error(err){
             console.log(err);
@@ -131,3 +128,14 @@ angular.module('AppCtrl', ['AppServices'])
 
     };
 }])
+<<<<<<< HEAD
+=======
+.config(function ($compileProvider) {
+    // Add optional support for custom schema links: "herp://" and "derp://"
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(herp|derp):/);
+  })
+  .controller('MainCtrl', function ($scope) {
+    $scope.text = '# Heading 1\n- [Link](http://example.com)\n- [Custom Link 1](herp://is.this.working?)\n- [Custom Link 2](derp://is.this.working?)';
+  });
+
+>>>>>>> 74638b3094e395c508000244d47b37cebbe8ab21
