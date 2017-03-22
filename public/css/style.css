@@ -12,10 +12,12 @@ a {
 .classNav{
   background-color: lightgrey;
 }
+
 .classNav:hover{
   background: #696969;
   color: white;
 }
+
 .container{
 	background-color: white;
 }
