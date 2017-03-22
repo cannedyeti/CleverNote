@@ -97,6 +97,10 @@ angular.module('AppCtrl', ['AppServices'])
             console.log("Nooo", err)
         })
     }
+
+    $scope.like = function(note){
+      console.log("like button pushed")
+    }
 }])
 .controller('OneNoteCtrl', ['$scope', '$location', '$http', 'Auth', 'NotesAPI', '$stateParams', function($scope, $location, $http, Auth, NotesAPI, $stateParams){
     $scope.note = {};
@@ -124,7 +128,6 @@ angular.module('AppCtrl', ['AppServices'])
         }, function error(err){
             console.log(err);
         });
-        
+
     };
 }])
-
