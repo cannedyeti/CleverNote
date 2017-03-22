@@ -1,4 +1,4 @@
-angular.module('AppCtrl', ['AppServices', 'markdown'])
+angular.module('AppCtrl', ['AppServices', 'ngSanitize'])
 .controller('SignupCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
     $scope.user = {
         name: '',

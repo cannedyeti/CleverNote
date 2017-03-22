@@ -1,4 +1,4 @@
-var app = angular.module('CleverNote', ['ui.router', 'AppCtrl']);
+var app = angular.module('CleverNote', ['ui.router', 'AppCtrl', 'ngSanitize']);
 
 app.config([
     '$stateProvider',
