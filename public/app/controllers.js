@@ -64,6 +64,7 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
             noteAuthor: currentUser,
             roomName: currentRoom
         }
+        
     })
     $scope.addNote = function() {
         // to implement
