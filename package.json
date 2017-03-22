@@ -20,6 +20,7 @@
     "marked": "^0.3.6",
     "mongoose": "^4.9.1",
     "morgan": "^1.8.1",
+    "ng-showdown": "^1.1.0",
     "showdown": "^1.6.4"
   }
 }

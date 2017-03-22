@@ -2,9 +2,13 @@
   <!--  Use this for update link -->
   <div class="text-center">
     <h1>{{note.noteTitle}}</h1>
-    <p class=""> {{ note.noteBody }}</p>
+    <xmp theme="united">{{ note.noteBody }}
+    </xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+    </xmp>
     <p class="authDate"><strong>Noted</strong> {{note.noteDate | date}} <strong>Courtesy of:</strong> {{ note.noteAuthor }}</p>
-        <br>
+    <br>
     <br>
     <div class="noteButtons">
       <a class="btn siteBtn btn-sm" ng-href="/notes">View All Notes</a>
