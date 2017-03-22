@@ -129,4 +129,3 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
     };
 }])
 
-
