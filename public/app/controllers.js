@@ -125,7 +125,6 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
         }, function error(err){
             console.log(err);
         });
-
     };
 }])
 
