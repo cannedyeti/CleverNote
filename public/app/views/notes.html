@@ -13,7 +13,7 @@
     <input type="text" class="form-control" id="search" ng-model="search" placeholder="Filter All Notes">
   </div>
   <div class="well" ng-repeat="note in notes | filter: search track by note._id">
-    <h1>{{note.noteTitle}}</h1>
+    <h1><a ng-href="/notes/{{note._id}}">{{note.noteTitle}}</a></h1>
     <h4 class="text-success" ng-if="!note.like">Likes: 0</h4>
     <h4 class="text-success" ng-if="note.like">Likes: {{note.like}}</h4>
 
