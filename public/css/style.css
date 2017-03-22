@@ -4,6 +4,7 @@ body{
 }
 .row {
   width: 101%;
+  text-align: center;
 }
 .classNav{
   background-color: lightgrey;
@@ -30,4 +31,9 @@ body{
   background-color: rgba(0,0,0,.7);
   color: white;
 
+}
+
+iframe {
+  margin: 0 auto;
+  display: block;
 }
