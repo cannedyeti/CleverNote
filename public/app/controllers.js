@@ -128,14 +128,5 @@ angular.module('AppCtrl', ['AppServices', 'markdown'])
 
     };
 }])
-<<<<<<< HEAD
-=======
-.config(function ($compileProvider) {
-    // Add optional support for custom schema links: "herp://" and "derp://"
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(herp|derp):/);
-  })
-  .controller('MainCtrl', function ($scope) {
-    $scope.text = '# Heading 1\n- [Link](http://example.com)\n- [Custom Link 1](herp://is.this.working?)\n- [Custom Link 2](derp://is.this.working?)';
-  });
 
->>>>>>> 74638b3094e395c508000244d47b37cebbe8ab21
+
