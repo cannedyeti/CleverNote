@@ -9,8 +9,8 @@
 	    <h1>{{note.noteTitle}}</h1>
 	    <p>From <strong>{{note.roomName}}</strong><img class="icon" src="/img/UXDI.png"></p>
 	    <a ng-href="/notes/{{note._id}}">View Note</a>
-	    <a ng-if="user.data.name == note.noteAuthor" ng-click="deleteNote(note._id, $index)" class="btn btn-danger glyphicon glyphicon-trash pull-right"></a>
+
 	  </div>
 	</div>
-  <a href="/notes" class="btn btn-warning">Back</a>
+  <a href="/notes" class="btn siteBtn">Back</a>
 </div>

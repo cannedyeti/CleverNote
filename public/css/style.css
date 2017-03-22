@@ -2,6 +2,9 @@ body{
   background-color: lightgrey;
   width: 100%;
 }
+a {
+  color: rgb(39, 38, 39);
+}
 .row {
   width: 101%;
   text-align: center;
@@ -9,6 +12,12 @@ body{
 .classNav{
   background-color: lightgrey;
 }
+
+.classNav:hover{
+  background: #696969;
+  color: white;
+}
+
 .container{
 	background-color: white;
 }
@@ -28,4 +37,31 @@ body{
 .egg {
   margin: 0 auto;
   display: block;
+}
+.fa-thumbs-o-up {
+  font-size: 30px;
+}
+.likes {
+  font-size: 20px;
+  padding-right: 10px;
+}
+.siteBtn {
+  color: rgb(233, 46, 56);
+  border: 2px solid #696969;
+  background-color: rgb(245,245,245);
+  margin-bottom: 10px;
+}
+.siteBtn:hover {
+  color: rgb(245,245,245);
+  background-color: #696969;
+}
+a:hover {
+  text-decoration: none;
+}
+.authDate {
+  margin-top: 20px;
+}
+.noteButtons {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

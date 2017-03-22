@@ -2,15 +2,14 @@
   <!--  Use this for update link -->
   <div class="text-center">
     <h1>{{note.noteTitle}}</h1>
-    <p class="pull-left"> {{ note.noteBody }}</p>
+    <p class=""> {{ note.noteBody }}</p>
+    <p class="authDate"><strong>Noted</strong> {{note.noteDate | date}} <strong>Courtesy of:</strong> {{ note.noteAuthor }}</p>
+        <br>
     <br>
-    <br>
-    <p class="pull-right"><strong>Author:</strong> {{ note.noteAuthor }}</p>
-    <br>
-    <br>
-  
-    <a class="btn btn-warning btn-sm" ng-href="/notes">View All Notes</a>
-    <a class="btn btn-primary btn-sm" ng-href="/notes/{{note._id}}/edit"> Edit</a>
-    <a class="btn btn-danger btn-sm" ng-click="deleteNote(note._id)">Delete</a>
+    <div class="noteButtons">
+      <a class="btn siteBtn btn-sm" ng-href="/notes">View All Notes</a>
+      <a class="btn siteBtn btn-sm" ng-href="/notes/{{note._id}}/edit"> Edit</a>
+      <a class="btn siteBtn btn-sm" ng-click="deleteNote(note._id)">Delete</a>
+    </div>
   </div>
 </div>
