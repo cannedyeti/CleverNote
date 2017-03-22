@@ -14,7 +14,7 @@
   </div>
   <div class="well" ng-repeat="note in notes | filter: search track by note._id">
     <h1><a ng-href="/notes/{{note._id}}">{{note.noteTitle}}</a></h1>
-    <p>From <strong>{{note.roomName}}</strong></p>
+    <p>From <strong>{{note.roomName}}</strong><img ng-src="/img/{{note.roomName}}.png"></p>
     <h4 class="text-success" ng-if="!note.like">Likes: 0</h4>
     <h4 class="text-success" ng-if="note.like">Likes: {{note.like}}</h4>
 
