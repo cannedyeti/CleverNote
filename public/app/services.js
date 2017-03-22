@@ -1,5 +1,5 @@
 angular.module('AppServices', ['ngResource'])
-.factory("Auth", ["$window", function($window) {
+    .factory("Auth", ["$window", function($window) {
     return {
         saveToken: function(token) {
         $window.localStorage['user-token'] = token;
@@ -33,8 +33,8 @@ angular.module('AppServices', ['ngResource'])
         }
         }
     }
-}])
-.factory("AuthInterceptor", ["Auth", function(Auth) {
+    }])
+    .factory("AuthInterceptor", ["Auth", function(Auth) {
     return {
         request: function(config) {
         var token = Auth.getToken();
@@ -44,8 +44,8 @@ angular.module('AppServices', ['ngResource'])
         return config;
         }
     }
-}])
-.factory('NotesAPI', ['$http', '$location', function($http, $location){
+    }])
+    .factory('NotesAPI', ['$http', '$location', function($http, $location){
     return {
         createNote: function(note) {
             return $http.post('/api/notes', note)
@@ -57,6 +57,7 @@ angular.module('AppServices', ['ngResource'])
             return $http.get("/api/notes/" + id);
         },
         deleteNote: function(id) {
+            console.log("delete note in notes API")
             return $http.delete("/api/notes/" + id)
             .then(function success(res) {
                 console.log("nice delete!", res);
@@ -67,6 +68,7 @@ angular.module('AppServices', ['ngResource'])
             })
         },
         updateNote: function(note) {
+            console.log("Update:", $http.put("api/notes/" + note._id, note))
             return $http.put("api/notes/" + note._id, note)
             .then(function success(res){
                 return res.data
@@ -75,13 +77,17 @@ angular.module('AppServices', ['ngResource'])
             });
         }
     }
+
+    }])
+    .factory("UsersAPI", ["$http", function($http) {
+
 }])
 .factory("UsersAPI", ["$http", function($http) {
+
     return {
         getUser: function(id) {
-            console.log('here i am', id)
-            console.log($http.get('api/users/' + id))
             return $http.get('api/users/' + id)
         }
     }
 }])
+

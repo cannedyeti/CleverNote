@@ -13,7 +13,7 @@ var app = express();
 // mongoose models and connection
 var mongoose = require('mongoose');
 var User = require('./models/user');
-var Note = require('./models/notes');
+// var Note = require('./models/notes');
 mongoose.connect('mongodb://localhost/AppServices');
 
 // decode POST data in JSON and URL encoded formats

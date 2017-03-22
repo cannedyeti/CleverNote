@@ -1,4 +1,14 @@
-<div>
+<div class='container'>
   <!--  Use this for update link -->
-  <!-- <a ng-click="updateNote()" ng-href="/notes/{{note._id/edit}}"> -->
+  <div class="text-center">
+    <h1>{{note.noteTitle}}</h1>
+    <p class="pull-left">{{ note.noteBody }} </p>
+    <br>
+    <br>
+    <p class="pull-right">{{ note.noteAuthor }}</p>
+        <br>
+    <br>
+    <a class="btn btn-primary btn-sm" ng-href="/notes/{{note._id}}/edit"> Edit</a>
+    <a class="btn btn-danger btn-sm" ng-click="deleteNote(note._id)">Delete</a>
+  </div>
 </div>
